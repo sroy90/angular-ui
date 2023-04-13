@@ -1,0 +1,44 @@
+.outer{
+    height: 100vh;
+    background: linear-gradient(to top, #c9c9ff 20%, #9eb24f 90%) no-repeat;
+}
+
+.outerApprove{
+    height: 40vh;
+    background: linear-gradient(to top, #c9c9ff 20%, #9eb24f 90%) no-repeat;
+}
+
+.logout{
+    position:absolute;
+     right: 10px;
+     align-items: center;
+}
+
+.userAdmin{
+    position:absolute;
+    right: 150px;
+   margin: auto 0px;
+}
+
+.tableHeading{
+    width:15%; 
+    text-align: center;
+}
+
+.tableContent{
+    text-align: center;
+}
+
+.searchIcon{
+    position: absolute;
+    z-index: 50;
+    right: 5%;
+}
+
+input{
+    border: 2px solid rgb(52, 27, 177);
+}
+
+select{
+    border: 2px solid rgb(52, 27, 177);
+}

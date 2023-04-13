@@ -1,0 +1,66 @@
+<div class=" container-fluid outer">
+    <a class="btn btn-primary btn-sm m-3 px-4 rounded-pill" routerLink="../emp-table">Back</a>
+    <div class="container">
+        <div class="col-md-8" style="margin:0px auto">
+            <div class="h-100 p-5 outer border rounded-3">
+                <h3 class="display-4">Update Reimbursement</h3>
+                <hr />
+                <div class="modal-body">
+                    <div *ngIf="alert" class="alert alert-success fade show" role="alert">
+                        <strong>Success!</strong> Data updated successfully.
+                    </div>
+                    <form [formGroup]="updateForm" (ngSubmit)="collectStudent()">
+
+                        <div class="mb-3">
+                            <label class="mb-2">Date</label>
+                            <input type="date" class="form-control" placeholder="Date" formControlName="date">
+                            <!-- <span class="text-danger" *ngIf="!date.valid && date.touched">* Enter the Date </span> -->
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="mb-2">Reimbursement Type</label>
+                            <select class="form-select" formControlName="reimType">
+                                <option value=null>--Select--</option>
+                                <option Medical="INR">Medical</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Food">Food</option>
+                                <option value="Internet">Internet</option>
+                            </select>
+                            <!-- <span class="text-danger" *ngIf="!reimType.valid && reimType.touched">* Select Reimbursement Type </span> -->
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label class="mb-2">Reimbursement Amount</label>
+                            <input type="number" class="form-control" placeholder="" formControlName="requestedAmount">
+                            <!-- <span class="text-danger" *ngIf="!requestedAmount.valid && requestedAmount.touched">* Enter the Amount </span> -->
+                        </div>
+                        <div class="mb-3">
+
+                            <!-- <input type="text" class="form-control" placeholder="currency" formControlName="currency"> -->
+                            <label class="mb-2">Currency</label>
+                            <select class="form-select" formControlName="currency">
+                                <option value=null>--Select--</option>
+                                <option value="INR">INR</option>
+                                <option value="US-Dolor">US-Dolor</option>
+                            </select>
+                            <!-- <span class="text-danger" *ngIf="!currency.valid && currency.touched">* Select Currency</span> -->
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="mb-2">Recipet Link</label>
+                            <input type="file" class="form-control" placeholder="" formControlName="recipelink">
+                            <!-- <span class="text-danger" *ngIf="!recipelink.valid && recipelink.touched">* Add your Reciepe link </span> -->
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mx-3"
+                            [disabled]="!updateForm.valid">Submit</button>
+                        <button type="reset" class="btn btn-danger">clear</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

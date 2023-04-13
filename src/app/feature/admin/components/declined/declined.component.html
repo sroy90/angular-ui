@@ -1,0 +1,86 @@
+
+<div class="container-fluid bg-dark p-2">
+    <ul  class="nav d-flex align-items-center">
+        <li class="nav-item">
+            <a class="nav-link active bg-dark text-secondary" aria-current="page" routerLink="../pending" style="background-color:aliceblue">Pending Requests</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active bg-dark text-secondary" aria-current="page" routerLink="../approved" style="background-color:aliceblue">Approved</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active bg-primary text-dark" aria-current="page" routerLink="declined">Declined</a>
+        </li>
+        <li class="p-2 logout">
+            <button mat-raised-button color="warn" (click)="onLogout()" routerLink="../login">
+                <span class="mx-3">Logout</span>
+            </button>
+        </li>
+    </ul>
+</div>
+
+
+<div class="container-fluid mb-5 outer">
+    <div class="col-md-12 outer" >
+        <div class="h-100 p-5  rounded-3">
+
+            <div class="text-end">
+                <!-- Search Bar -->
+                <div class="col-md-3 mb-3">
+                    <form [formGroup]="searchForm" (ngSubmit)="onClickFilter()" class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" formControlName="searchContent">
+                        <button type="submit" class="btn  btn-sm">Search</button>
+                    </form>
+                </div>
+
+                
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Requested By</th>
+                        <th scope="col">Reimbursement Type</th>
+                        <th scope="col">Requested Value</th>
+                        <th scope="col">Currency</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let user of adminList">
+                    <!-- <tr *ngIf="user.flag == '0'">
+                        <td>{{user.date}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.reimType}}</td>
+                        <td>{{user.requestedAmount}}</td>
+                        <td>{{user.currency}}</td>
+                        <td>
+                            <i class="fa fa-xmark" style="font-size:20px;color:red; margin-left:20px;"></i>
+                        </td>
+                    </tr> -->
+
+                    <tr *ngIf="user.flag == '0' && searchEmail==null">
+                        <td>{{user.date | date}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.reimType}}</td>
+                        <td>{{user.requestedAmount}}</td>
+                        <td>{{user.currency}}</td>
+                        <td>
+                            <i class="fa fa-check" style="font-size:20px;color:red; margin-left:20px;"></i>
+                        </td>
+                    </tr>
+                    <tr *ngIf="user.email == searchEmail && user.flag == '0'">
+                        <td>{{user.date | date}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.reimType}}</td>
+                        <td>{{user.requestedAmount}}</td>
+                        <td>{{user.currency}}</td>
+                        <td>
+                            <i class="fa fa-check" style="font-size:20px;color:red; margin-left:20px;"></i>
+                        </td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
